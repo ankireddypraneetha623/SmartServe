@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartServe - Raise Request</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #263238;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
+            color: white;
+            padding: 22px 40px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccd5df;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 7px;
+            background: #1565c0;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0d47a1;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 18px;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>SmartServe</h1>
+        <p>Service Request Management System</p>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Raise Service Request</h2>
+
+            <p>Enter the details of your service issue below.</p>
+
+            <form method="POST" action="/request">
+
+                <div class="form-group">
+                    <label>
+                        Employee Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="employee"
+                        placeholder="Enter employee name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Category <span class="required">*</span>
+                    </label>
+
+                    <select name="category" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Hardware">
+                            Hardware
+                        </option>
+
+                        <option value="Software">
+                            Software
+                        </option>
+
+                        <option value="Network">
+                            Network
+                        </option>
+
+                        <option value="Access">
+                            Access
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Priority <span class="required">*</span>
+                    </label>
+
+                    <select name="priority" required>
+
+                        <option value="">
+                            Select Priority
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Problem Description
+                        <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        name="description"
+                        rows="6"
+                        placeholder="Describe your issue in detail..."
+                        required
+                    ></textarea>
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Submit Request
+
+                </button>
+
+            </form>
+
+
+            <a
+                href="/dashboard"
+                class="back-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
